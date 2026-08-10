@@ -1,63 +1,101 @@
-import { Map, Coins, Star, Tag, Languages, Camera } from "lucide-react"
-
 const features = [
   {
-    icon: Map,
-    title: "Interactive Map & Venue Discovery",
-    desc: "Explore restaurants, bars, cafés and entertainment spots around you on a live, interactive map.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#5387F6"/>
+        <path d="M34.1172 21.45C33.0672 16.83 29.0372 14.75 25.4972 14.75C25.4972 14.75 25.4972 14.75 25.4872 14.75C21.9572 14.75 17.9172 16.82 16.8672 21.44C15.6972 26.6 18.8572 30.97 21.7172 33.72C22.7772 34.74 24.1372 35.25 25.4972 35.25C26.8572 35.25 28.2172 34.74 29.2672 33.72C32.1272 30.97 35.2872 26.61 34.1172 21.45ZM25.4972 26.46C23.7572 26.46 22.3472 25.05 22.3472 23.31C22.3472 21.57 23.7572 20.16 25.4972 20.16C27.2372 20.16 28.6472 21.57 28.6472 23.31C28.6472 25.05 27.2372 26.46 25.4972 26.46Z" fill="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "Discover Nearby",
+    desc: "Find restaurants, bars, cafes and attractions around you.",
   },
   {
-    icon: Coins,
-    title: "Real-Time Currency Conversion",
-    desc: "See every price in your home currency instantly, so you always know exactly what you'll pay.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#49B32B"/>
+        <path d="M25.2266 16.2795C26.4232 16.217 27.5961 16.6725 28.4473 17.5237L32.9766 22.054L32.9775 22.0549C34.6515 23.72 34.6502 26.4207 32.9785 28.0745L28.5879 32.4651C26.9124 34.1316 24.2082 34.1303 22.5439 32.4661L18.0137 27.9368C17.1648 27.0879 16.7162 25.9154 16.7695 24.7141L17.0098 19.7151C17.0969 17.982 18.4809 16.5983 20.2227 16.5198H20.2246L25.2246 16.2795H25.2266ZM31.3838 25.1165C30.8986 24.6314 30.1024 24.6314 29.6172 25.1165L25.6172 29.1165C25.1319 29.6017 25.1319 30.3988 25.6172 30.884C25.8657 31.1324 26.1848 31.2501 26.5 31.2502C26.8153 31.2502 27.1351 31.1325 27.3838 30.884L31.3838 26.884C31.8691 26.3988 31.8691 25.6017 31.3838 25.1165ZM23 19.1204C21.1452 19.1206 19.6201 20.6331 19.6201 22.5002C19.6202 24.3673 21.1453 25.8799 23 25.8801C24.8549 25.8801 26.3808 24.3674 26.3809 22.5002C26.3809 20.633 24.855 19.1204 23 19.1204Z" fill="white" stroke="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "Exclusive Deals",
+    desc: "Unlock amazing discounts and promotions.",
   },
   {
-    icon: Star,
-    title: "CRV Score & Traveler Ratings",
-    desc: "Our Cost-Rating-Value score blends price and reviews into one trustworthy number.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#6155F5"/>
+        <path d="M32.9773 15.82L33.2573 16.39C33.3973 16.67 33.7473 16.93 34.0573 16.99L34.4373 17.05C35.5773 17.24 35.8473 18.08 35.0273 18.91L34.6773 19.26C34.4473 19.5 34.3173 19.96 34.3873 20.28L34.4373 20.49C34.7473 21.87 34.0173 22.4 32.8173 21.68L32.5573 21.53C32.2473 21.35 31.7473 21.35 31.4373 21.53L31.1773 21.68C29.9673 22.41 29.2373 21.87 29.5573 20.49L29.6073 20.28C29.6773 19.96 29.5473 19.5 29.3173 19.26L28.9673 18.9C28.1473 18.07 28.4173 17.23 29.5573 17.04L29.9373 16.98C30.2373 16.93 30.5973 16.66 30.7373 16.38L31.0173 15.81C31.5573 14.73 32.4373 14.73 32.9773 15.82Z" fill="white"/>
+        <path d="M35.07 23.09C34.71 23.35 33.7 23.83 32.26 23.09C32.1 23.01 31.9 23 31.74 23.09C31.17 23.38 30.65 23.5 30.24 23.5C29.6 23.5 29.15 23.25 28.93 23.09C28.56 22.82 27.78 22.05 28.05 20.42C28.08 20.25 28.03 20.08 27.92 19.95C27.23 19.16 26.85 18.1 27.12 17.27C27.22 16.94 27.01 16.5 26.67 16.5H20.5C17.5 16.5 15.5 18 15.5 21.5V28.5C15.5 32 17.5 33.5 20.5 33.5H30.5C33.5 33.5 35.5 32 35.5 28.5V23.27C35.5 23.08 35.23 22.98 35.07 23.09ZM27.84 25.09C27.18 25.62 26.34 25.88 25.5 25.88C24.66 25.88 23.81 25.62 23.16 25.09L20.03 22.59C19.71 22.33 19.66 21.85 19.91 21.53C20.17 21.21 20.64 21.15 20.96 21.41L24.09 23.91C24.85 24.52 26.14 24.52 26.9 23.91C27.22 23.65 27.69 23.7 27.95 24.03C28.22 24.35 28.17 24.83 27.84 25.09Z" fill="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "Real Reviews",
+    desc: "Read authentic traveller reviews in your language.",
   },
   {
-    icon: Tag,
-    title: "Active Deals & Promotions",
-    desc: "Unlock exclusive discounts and limited-time offers from venues near you.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#FFAA00"/>
+        <path d="M27.2289 16.5099L28.9889 20.0299C29.2289 20.5199 29.8689 20.9899 30.4089 21.0799L33.5989 21.6099C35.6389 21.9499 36.1189 23.4299 34.6489 24.8899L32.1689 27.3699C31.7489 27.7899 31.5189 28.5999 31.6489 29.1799L32.3589 32.2499C32.9189 34.6799 31.6289 35.6199 29.4789 34.3499L26.4889 32.5799C25.9489 32.2599 25.0589 32.2599 24.5089 32.5799L21.5189 34.3499C19.3789 35.6199 18.0789 34.6699 18.6389 32.2499L19.3489 29.1799C19.4789 28.5999 19.2489 27.7899 18.8289 27.3699L16.3489 24.8899C14.8889 23.4299 15.3589 21.9499 17.3989 21.6099L20.5889 21.0799C21.1189 20.9899 21.7589 20.5199 21.9989 20.0299L23.7589 16.5099C24.7189 14.5999 26.2789 14.5999 27.2289 16.5099Z" fill="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "CRV Score",
+    desc: "Make informed decisions with our unique trust score.",
   },
   {
-    icon: Languages,
-    title: "Translated Reviews",
-    desc: "Read authentic local reviews auto-translated into your language for total confidence.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#FE6E39"/>
+        <path d="M25.75 28.9201H26.4C27.05 28.9201 27.59 28.3401 27.59 27.6401C27.59 26.7701 27.28 26.6001 26.77 26.4201L25.76 26.0701V28.9201H25.75Z" fill="white"/>
+        <path d="M24.9701 14.8999C19.4501 14.9199 14.9801 19.4099 15.0001 24.9299C15.0201 30.4499 19.5101 34.9199 25.0301 34.8999C30.5501 34.8799 35.0201 30.3899 35.0001 24.8699C34.9801 19.3499 30.4901 14.8899 24.9701 14.8999ZM27.2601 24.9999C28.0401 25.2699 29.0901 25.8499 29.0901 27.6399C29.0901 29.1799 27.8801 30.4199 26.4001 30.4199H25.7501V30.9999C25.7501 31.4099 25.4101 31.7499 25.0001 31.7499C24.5901 31.7499 24.2501 31.4099 24.2501 30.9999V30.4199H23.8901C22.2501 30.4199 20.9201 29.0399 20.9201 27.3399C20.9201 26.9299 21.2601 26.5899 21.6701 26.5899C22.0801 26.5899 22.4201 26.9299 22.4201 27.3399C22.4201 28.2099 23.0801 28.9199 23.8901 28.9199H24.2501V25.5399L22.7401 24.9999C21.9601 24.7299 20.9101 24.1499 20.9101 22.3599C20.9101 20.8199 22.1201 19.5799 23.6001 19.5799H24.2501V18.9999C24.2501 18.5899 24.5901 18.2499 25.0001 18.2499C25.4101 18.2499 25.7501 18.5899 25.7501 18.9999V19.5799H26.1101C27.7501 19.5799 29.0801 20.9599 29.0801 22.6599C29.0801 23.0699 28.7401 23.4099 28.3301 23.4099C27.9201 23.4099 27.5801 23.0699 27.5801 22.6599C27.5801 21.7899 26.9201 21.0799 26.1101 21.0799H25.7501V24.4599L27.2601 24.9999Z" fill="white"/>
+        <path d="M22.4219 22.3701C22.4219 23.2401 22.7319 23.4101 23.2419 23.5901L24.2519 23.9401V21.0801H23.6019C22.9519 21.0801 22.4219 21.6601 22.4219 22.3701Z" fill="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "Fair Prices",
+    desc: "See prices in your currency with real-time conversion.",
   },
   {
-    icon: Camera,
-    title: "Community Photos & Pricing Tips",
-    desc: "Real photos and pricing tips shared by fellow travelers — no surprises at the table.",
+    icon: (
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="50" height="50" rx="25" fill="#008080"/>
+        <path d="M25.62 33.8101C25.28 33.9301 24.72 33.9301 24.38 33.8101C21.48 32.8201 15 28.6901 15 21.6901C15 18.6001 17.49 16.1001 20.56 16.1001C22.38 16.1001 23.99 16.9801 25 18.3401C26.01 16.9801 27.63 16.1001 29.44 16.1001C32.51 16.1001 35 18.6001 35 21.6901C35 28.6901 28.52 32.8201 25.62 33.8101Z" fill="white"/>
+      </svg>
+    ),
+    iconBg: "",
+    title: "Save Favourites",
+    desc: "Save places you love and access them offline.",
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-          Everything you need to <span className="text-primary">explore smarter</span>
-        </h2>
-        <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-          Powerful tools built for travelers who want transparency, value, and confidence on every trip.
-        </p>
-      </div>
-
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map(({ icon: Icon, title, desc }) => (
-          <div
-            key={title}
-            className="glass group rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1"
-          >
-            <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-              <Icon className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <h3 className="mt-5 text-lg font-bold text-foreground">{title}</h3>
-            <p className="mt-2 leading-relaxed text-muted-foreground">{desc}</p>
-          </div>
-        ))}
+    <section className="bg-white py-10">
+      <div className="container-wide">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {features.map(({ icon, iconBg, title, desc }) => (
+            <div
+              key={title}
+              className="flex flex-col items-center gap-4 bg-white px-4 py-8 text-center border border-gray-100"
+              style={{
+                boxShadow: "0px 0px 10px 0px #00000040",
+                width: "clamp(140px, 12.3vw, 197px)",
+                minHeight: "clamp(160px, 14.69vw, 235px)",
+                borderRadius: "clamp(16px, 1.5vw, 24px)",
+              }}
+            >
+              <span className="flex items-center justify-center">
+  {icon}
+</span>
+              <div className="flex flex-col gap-2">
+                <p className="font-extrabold text-black" style={{ fontSize: "clamp(12px, 1.2vw, 18px)" }}>{title}</p>
+                <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(10px, 1vw, 14px)" }}>{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

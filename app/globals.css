@@ -37,6 +37,7 @@
 
 :root {
   color-scheme: light;
+  scroll-behavior: smooth;
   --radius: 0.75rem;
 
   --background: #f8f7f4;
@@ -84,6 +85,11 @@
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 
 @utility container-wide {

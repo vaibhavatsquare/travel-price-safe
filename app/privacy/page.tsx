@@ -9,167 +9,156 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteNavbar />
-      <section className="pt-32 pb-20 px-4">
-        <div className="mx-auto max-w-3xl">
+      <section className="pt-10 pb-20 px-4 bg-white">
+        <div className="mx-auto max-w-full px-8">
 
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
-            Legal
+          <div className="flex items-center gap-3 mb-2">
+            <a href="/" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+              </svg>
+            </a>
+            <h1 className="font-bold text-foreground" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
+              Privacy Policy
+            </h1>
+          </div>
+          <p className="text-muted-foreground mb-2" style={{ fontSize: "clamp(12px, 1vw, 14px)" }}>
+            <span className="font-semibold">Last Updated:</span>{" "}
+            <span className="text-muted-foreground">July 14, 2026</span>
           </p>
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-12 border-b border-border pb-10">
-            Your privacy matters to us. This policy explains what data TravelPriceSafe
-            collects, how we use it, and the choices you have.
-          </p>
+          <div className="border-b border-border mb-10" />
 
           <div className="flex flex-col gap-10">
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">1. Information We Collect</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. <span className="font-semibold text-foreground">Account Information:</span> When
-                you sign up, we collect your full name, email address, phone number, preferred
-                language, and home currency.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>1. Introduction</h3>
+              <p className="text-muted-foreground leading-relaxed mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                Welcome to TravelPriceSafe ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application (the "App").
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                b. <span className="font-semibold text-foreground">Location Data:</span> We collect
-                your device location when the App is in use to show nearby venues, calculate
-                distances, and personalise your experience. We do not track your location in
-                the background.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                c. <span className="font-semibold text-foreground">User-Submitted Content:</span> Reviews,
-                experiences, photos, pricing information, and safety reports you submit are
-                stored and may be displayed to other users.
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                Please read this Privacy Policy carefully. By using the App, you consent to the practices described in this policy.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">2. How We Use Your Information</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. To provide and improve the App's core features — venue discovery, composite
-                scoring, currency conversion, and deal listings.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                b. To personalise your experience based on your preferred language, home
-                currency, and saved places.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                c. To send you push notifications about nearby deals and App updates, where
-                you have opted in.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                d. To moderate community content and ensure safety and accuracy across
-                the platform.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>2. Information We Collect</h3>
+              <p className="font-semibold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>2.1 Information You Provide to Us:</p>
+              <div className="flex flex-col gap-1 mb-4 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Category Examples</div>
+                <div>Account Information Name, email address, phone number (optional), password</div>
+                <div>Profile Information Profile photo, preferences, saved places</div>
+                <div>User Contributions Reviews, ratings, price submissions, photos, safety reports, vibe check-ins, tips</div>
+                <div>Communications Messages you send to our support team</div>
+              </div>
+              <p className="font-semibold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>2.2 Information Collected Automatically:</p>
+              <div className="flex flex-col gap-1 mb-4 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Category Examples</div>
+                <div>Device Information Device model, operating system, unique device identifiers</div>
+                <div>Location Information Approximate location (based on IP address) and precise location (with your permission)</div>
+                <div>Usage Data App features used, time spent, searches, clicks</div>
+                <div>Transaction Data Deals viewed, saved, or redeemed</div>
+              </div>
+              <p className="font-semibold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>2.3 Information from Third Parties:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Source Examples</div>
+                <div>Social Media If you choose to connect social media accounts (future feature)</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>3. How We Use Your Information</h3>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Purpose Explanation</div>
+                <div>To provide and maintain the App Display venues, deals, CRV scores, maps, and translations</div>
+                <div>To personalize your experience Show venues in your language and currency</div>
+                <div>To calculate CRV Scores Price submissions, safety reports, and vibe check-ins feed into our proprietary scoring algorithm</div>
+                <div>To communicate with you Send notifications about deals, updates, and support responses</div>
+                <div>To improve the App Analyze usage patterns and fix bugs</div>
+                <div>To ensure safety and security Monitor for fraudulent activity, verify user submissions</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>4. How We Share Your Information</h3>
+              <div className="flex flex-col gap-1 mb-3 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Recipient Information Shared Purpose</div>
+                <div>Venue Partners Aggregated ratings and reviews (not personally identifiable) Help venues understand user feedback</div>
+                <div>Service Providers Necessary data (e.g., cloud hosting, analytics, maps) To operate the App</div>
+                <div>Legal Requirements As required by law To comply with legal obligations</div>
+                <div>Business Transfers In case of merger or acquisition To facilitate business transition</div>
+              </div>
+              <p className="text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We do NOT sell your personal information to third parties.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">3. Composite Score Data</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Pricing information, ratings, and experience data you submit contribute to
-                the community Composite Score. This data is anonymised before being used in
-                score calculations. Your name may appear alongside your public reviews unless
-                you request otherwise.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>5. Your Rights and Choices</h3>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Right How to Exercise</div>
+                <div>Access your data Request a copy of your information via support@travelpricesafe.com</div>
+                <div>Correct your data Edit your profile in the App</div>
+                <div>Delete your account Go to Settings → Delete Account</div>
+                <div>Opt out of notifications Adjust notification preferences in Settings</div>
+                <div>Disable location tracking Change device permissions in your phone settings</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>6. Data Security</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We implement reasonable security measures to protect your information, including encryption, secure API connections, and access controls. However, no method of transmission over the internet is 100% secure.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">4. Data Sharing</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                We do not sell your personal data to third parties. We may share data with:
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. <span className="font-semibold text-foreground">Service Providers:</span> Third-party
-                services we use to operate the App (e.g. cloud hosting, analytics, currency
-                rate APIs). These providers are bound by confidentiality agreements.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                b. <span className="font-semibold text-foreground">Legal Requirements:</span> We may
-                disclose data if required by law or to protect the rights and safety of our
-                users and the public.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>7. Data Retention</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We retain your information as long as your account is active. If you delete your account, we will delete your personal information within 30 days, except where we are required to retain it for legal purposes.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">5. Data Retention</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We retain your account data for as long as your account is active. If you
-                delete your account, your personal information is removed within 30 days.
-                Anonymised contribution data used in composite scoring may be retained
-                for platform integrity purposes.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>8. Children's Privacy</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                The App is not intended for children under 13. We do not knowingly collect information from children under 13.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">6. Your Rights</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                Depending on your location, you may have rights including:
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. The right to access, correct, or delete your personal data.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                b. The right to withdraw consent for location tracking or push notifications
-                at any time via App settings.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                c. The right to request account deletion directly from the App's settings screen.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>9. International Data Transfers</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                Your information may be transferred to and processed in countries other than your own. We take steps to ensure your data is protected in accordance with this Privacy Policy.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">7. Security</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We implement industry-standard security measures to protect your data,
-                including encrypted data transmission and secure storage. However, no method
-                of transmission over the internet is 100% secure and we cannot guarantee
-                absolute security.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>10. Changes to This Privacy Policy</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We may update this Privacy Policy from time to time. We will notify you of material changes via the App or email.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">8. Children's Privacy</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                TravelPriceSafe is not intended for users under 18 years of age. We do not
-                knowingly collect personal information from minors. If we become aware that
-                a minor has created an account, we will promptly delete their information.
+              <h3 className="font-bold text-foreground mb-3" style={{ fontSize: "clamp(16px, 1.5vw, 22px)" }}>11. Contact Us</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                If you have questions about this Privacy Policy, please contact us at:
               </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">9. Analytics</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We use Firebase Analytics to understand how users interact with the App.
-                This data is aggregated and anonymised and helps us improve features and
-                performance. You can opt out of analytics collection via your device settings.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">10. Contact Us</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                If you have questions about this Privacy Policy or wish to exercise your
-                data rights, please contact us at{" "}
-                <a
-                  href="mailto:privacy@travelprice.safe"
-                  className="text-primary font-semibold hover:underline underline-offset-4"
-                >
-                  privacy@travelprice.safe
+              <p className="text-muted-foreground leading-relaxed mt-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                Email:{" "}
+                <a href="mailto:support@travelpricesafe.com" className="text-muted-foreground hover:underline underline-offset-4">
+                  support@travelpricesafe.com
                 </a>
-                .
               </p>
             </div>
 
           </div>
 
-          <p className="text-sm text-muted-foreground mt-16 pt-8 border-t border-border">
-            Last updated: July 2026
-          </p>
+          
+
         </div>
       </section>
-      <SiteFooter />
+      {/* <SiteFooter /> */}
     </main>
   )
 }

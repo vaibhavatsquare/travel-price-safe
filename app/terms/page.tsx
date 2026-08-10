@@ -9,146 +9,177 @@ export default function TermsPage() {
   return (
     <main className="min-h-screen bg-background">
       <SiteNavbar />
-      <section className="pt-32 pb-20 px-4">
-        <div className="mx-auto max-w-3xl">
+      <section className="pt-10 pb-20 px-4 bg-white">
+        <div className="mx-auto max-w-full px-8">
 
-          <p className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
-            Legal
+          <div className="flex items-center gap-3 mb-2">
+            <a href="/" className="flex items-center text-muted-foreground hover:text-primary transition-colors">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+              </svg>
+            </a>
+            <h1 className="font-bold text-foreground" style={{ fontSize: "clamp(18px, 2vw, 28px)" }}>
+              Terms Of Condition
+            </h1>
+          </div>
+          <p className="text-muted-foreground mb-2" style={{ fontSize: "clamp(12px, 1vw, 14px)" }}>
+            <span className="font-semibold">Last Updated:</span>{" "}
+            <span className="text-muted-foreground">July 14, 2026</span>
           </p>
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl mb-4">
-            Terms &amp; Conditions
-          </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-12 border-b border-border pb-10">
-            By downloading, installing, or using TravelPriceSafe, you agree to comply with
-            and be bound by these Terms and Conditions.
-          </p>
+          <div className="border-b border-border mb-10" />
 
           <div className="flex flex-col gap-10">
 
             <div>
               <h3 className="text-xl font-bold text-foreground mb-3">1. Acceptance of Terms</h3>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing and using this App, you accept and agree to be bound by the terms
-                and provisions of this agreement. If you do not agree to these terms, please do
-                not use the application.
+                By downloading, accessing, or using TravelPriceSafe (the "App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">2. User Responsibilities</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. <span className="font-semibold text-foreground">Age Restriction:</span> You
-                must be at least 18 years old to use this App. By using the App, you confirm
-                that you are of legal age in your jurisdiction.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                b. <span className="font-semibold text-foreground">Accurate Information:</span> You
-                agree to provide accurate, current, and complete information during registration
-                and to update such information to keep it accurate and complete.
-              </p>
+              <h3 className="text-xl font-bold text-foreground mb-3">2. Eligibility</h3>
               <p className="text-muted-foreground leading-relaxed">
-                c. <span className="font-semibold text-foreground">Community Contributions:</span> Any
-                reviews, experiences, photos, or pricing information you submit must be honest,
-                accurate, and based on genuine personal experience. Fraudulent or misleading
-                submissions may result in account suspension.
+                You must be at least 13 years old to use the App. By using the App, you represent that you meet this requirement.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">3. Use of the App</h3>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                a. <span className="font-semibold text-foreground">Location & Service Data:</span> The
-                App uses your device location to show nearby venues and calculate distances.
-                You consent to this collection as described in our Privacy Policy.
+              <h3 className="text-xl font-bold text-foreground mb-3">3. Your Account:</h3>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div><span className="font-semibold text-foreground">Requirement. Explanation.</span></div>
+                <div>Accuracy: You must provide accurate and complete information</div>
+                <div>Security: You are responsible for maintaining the confidentiality of your password</div>
+                <div>Responsibility: You are responsible for all activity under your account</div>
+                <div>Notification: You must notify us immediately of any unauthorized use</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">4. User Conduct</h3>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div><span className="font-semibold text-foreground">You agree NOT to:</span></div>
+                <div>Prohibited Conduct. Example,</div>
+                <div>False information Submitting fake prices, reviews, or safety reports</div>
+                <div>Harassment Posting abusive, threatening, or harassing content</div>
+                <div>Spam Posting repetitive or irrelevant content</div>
+                <div>Illegal activity Using the App for any unlawful purpose</div>
+                <div>Impersonation Pretending to be someone else</div>
+                <div>Reverse engineering Attempting to extract our proprietary CRV Score algorithm</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">5. User Contributions</h3>
+              <p className="font-bold text-foreground mb-1" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>5.1 License to Us</p>
+              <p className="text-muted-foreground leading-relaxed mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                By submitting content (reviews, prices, photos, safety reports, vibe check-ins) to the App, you grant us a non-exclusive, royalty-free, worldwide license to use, display, and distribute your content in connection with the App.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-3">
-                b. <span className="font-semibold text-foreground">Currency Data:</span> Exchange
-                rates are provided for informational purposes only. TravelPriceSafe is not
-                responsible for any financial decisions made based on displayed conversions.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                c. <span className="font-semibold text-foreground">Prohibited Activities:</span> You
-                agree not to engage in any activity that may interfere with the proper
-                functioning of the App, including distributing malware, attempting to gain
-                unauthorised access, scraping data, or disrupting services.
+              <p className="font-bold text-foreground mb-1" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>5.2 Your Warranties</p>
+              <p className="text-muted-foreground mb-1" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>You represent that:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>· You own the content or have permission to submit it</div>
+                <div>· Your content is accurate and not misleading</div>
+                <div>· Your content does not violate any third-party rights</div>
+              </div>
+              <p className="font-bold text-foreground mb-1" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>5.3 Verification</p>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We reserve the right to verify user submissions and remove any content that violates these Terms.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">4. Composite Score (CRV)</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                The Composite Score displayed within the App is a community-driven metric
-                calculated from traveler-submitted data. It is provided as a general guide only
-                and does not constitute a professional recommendation or endorsement of any venue.
-                Scores may change as new data is submitted.
+              <h3 className="text-xl font-bold text-foreground mb-3">6. CRV Score™</h3>
+              <p className="font-bold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>The CRV Score™ is our proprietary algorithm that combines Value, Safety, Vibe, and Distance scores. You agree that:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>· The CRV Score is provided for informational purposes only</div>
+                <div>· We do not guarantee the accuracy of any score</div>
+                <div>· You should use your own judgment when visiting any venue</div>
+                <div>· The algorithm is our confidential intellectual property</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">7. Third-Party Services</h3>
+              <p className="font-bold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>The App integrates with third-party services including:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>Service Purpose</div>
+                <div>Google Maps Map display and location services</div>
+                <div>Currency API Real-time exchange rates</div>
+                <div>Translation API Language translation</div>
+              </div>
+              <p className="text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                These services have their own terms and privacy policies. We are not responsible for their practices.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">5. Privacy</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Your use of the App is governed by our{" "}
-                <a href="/privacy" className="text-primary font-semibold hover:underline underline-offset-4">
-                  Privacy Policy
+              <h3 className="text-xl font-bold text-foreground mb-3">8. Disclaimer of Warranties</h3>
+              <p className="font-bold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE." WE DO NOT WARRANT THAT:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>· The App will be uninterrupted or error-free</div>
+                <div>· CRV Scores or other information are accurate or reliable</div>
+                <div>· Any venue is safe or offers the advertised deals</div>
+              </div>
+              <p className="text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                YOU USE THE APP AT YOUR OWN RISK.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">9. Limitation of Liability</h3>
+              <p className="font-bold text-foreground mb-2" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE ARE NOT LIABLE FOR:</p>
+              <div className="flex flex-col gap-1 text-muted-foreground mb-3" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                <div>· Indirect, incidental, or consequential damages</div>
+                <div>· Loss of data, profits, or goodwill</div>
+                <div>· Injury or property damage related to visiting any venue discovered through the App</div>
+              </div>
+              <p className="text-muted-foreground" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US (IF ANY) IN THE PAST 12 MONTHS.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">10. Indemnification</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                You agree to indemnify and hold us harmless from any claims arising from your use of the App or violation of these Terms.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">11. Termination</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We may suspend or terminate your account if you violate these Terms. You may delete your account at any time in Settings.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">12. Governing Law</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                These Terms are governed by the laws of [Your State/Country.]
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">13. Changes to Terms</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                We may update these Terms. Continued use of the App after changes constitutes acceptance.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-3">14. Contact Us</h3>
+              <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "clamp(13px, 1.1vw, 17px)" }}>
+                Email:{" "}
+                <a href="mailto:support@travelpricesafe.com" className="text-muted-foreground hover:underline underline-offset-4">
+                  support@travelpricesafe.com
                 </a>
-                , which is incorporated by reference into these Terms and Conditions.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">6. Intellectual Property</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                The App and its original content, features, Composite Score methodology, and
-                functionality are owned by TravelPriceSafe and are protected by international
-                copyright, trademark, patent, trade secret, and other intellectual property laws.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">7. Disclaimer of Warranties</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                The App is provided "as is." TravelPriceSafe makes no warranties, expressed or
-                implied, regarding the accuracy of venue information, pricing data, exchange
-                rates, or user-submitted content. Use of the App is at your own risk.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">8. Limitation of Liability</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                In no event shall TravelPriceSafe be liable for any indirect, incidental,
-                special, consequential, or punitive damages, including loss of profits,
-                revenues, data, or goodwill, resulting from your use or inability to use
-                the App.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">9. Governing Law</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                These Terms and Conditions are governed by and construed in accordance with
-                applicable laws. You irrevocably submit to the exclusive jurisdiction of the
-                courts in the relevant location.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-3">10. Changes to Terms</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                TravelPriceSafe reserves the right to update these Terms at any time. Continued
-                use of the App after changes are posted constitutes your acceptance of the
-                revised Terms. We will notify users of significant changes via the App or email.
               </p>
             </div>
 
           </div>
-
-          <p className="text-sm text-muted-foreground mt-16 pt-8 border-t border-border">
-            Last updated: July 2026
-          </p>
         </div>
       </section>
-      <SiteFooter />
     </main>
   )
 }

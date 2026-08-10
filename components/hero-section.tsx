@@ -8,6 +8,8 @@ export function HeroSection() {
           <img
             src="/logo.svg"
             alt="TravelPriceSafe"
+            fetchPriority="high"
+            decoding="sync"
             style={{ height: "clamp(48px, 5vw, 72px)", width: "auto" }}
           />
         </a>
@@ -108,6 +110,10 @@ export function HeroSection() {
           <img
             src="/hero-right.svg"
             alt="Travel collage"
+            fetchPriority="high"
+            decoding="async"
+            width={800}
+            height={600}
             className="w-full h-auto object-contain"
           />
         </div>

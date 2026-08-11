@@ -14,17 +14,17 @@ export function SiteFooter() {
                 style={{ height: "clamp(40px, 9vw, 92px)", width: "auto" }}
               />
             </a>
-            <p className="mt-2 text-gray-400" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
+            <p className="mt-2" style={{ fontSize: "clamp(13px, 1.2vw, 18px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 500 }}>
               Travel Smarter. Discover better.<br />Pay Fair
             </p>
           </div>
 
           {/* Nav links */}
           <nav className="flex flex-col items-start sm:items-end gap-2" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
-            <a href="/privacy" className="text-gray-500 transition-colors hover:text-primary">
+            <a href="/privacy" className="transition-colors hover:text-primary" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
               Privacy Policy
             </a>
-            <a href="/terms" className="text-gray-500 transition-colors hover:text-primary">
+            <a href="/terms" className="transition-colors hover:text-primary" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
               Terms of Use
             </a>
           </nav>

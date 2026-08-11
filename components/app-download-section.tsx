@@ -27,6 +27,36 @@ export function AppDownloadSection() {
           />
         </div>
 
+        {/* Dashed curve – mobile only */}
+        <img
+          src="/Vector__1_.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute lg:hidden"
+          style={{
+            width: "25vw",
+            height: "auto",
+            top: "32vw",
+            right: "10vw",
+            zIndex: 2,
+            transform: "rotate(10deg)",
+          }}
+        />
+        {/* Plane – mobile only */}
+        <img
+          src="/Vector__2_.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute lg:hidden"
+          style={{
+            width: "5vw",
+            height: "auto",
+            top: "28vw",
+            right: "15vw",
+            zIndex: 3,
+          }}
+        />
+
         {/* Dashed curve path */}
         <img
           src="/Vector__1_.svg"
@@ -67,14 +97,14 @@ export function AppDownloadSection() {
           <h2 className="font-bold leading-tight text-[#0a1628]" style={{ fontSize: "clamp(20px, 2.8vw, 42px)", letterSpacing: "0.03em" }}>
             Your Next Great Discovery<br /> Starts Here.
           </h2>
-          <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(13px, 1.2vw, 18px)", marginTop: "clamp(12px, 1.5vw, 24px)" }}>
+          <p className="leading-relaxed" style={{ fontSize: "clamp(13px, 1.2vw, 18px)", marginTop: "clamp(12px, 1.5vw, 24px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 500 }}>
             Download TravelPriceSafe and make every journey<br /> unforgettable.
           </p>
-          <div className="justify-center lg:justify-start" style={{ marginTop: "clamp(20px, 3vw, 48px)", display: "flex", flexWrap: "wrap", gap: "clamp(8px, 1.2vw, 16px)" }}>
+          <div className="justify-center lg:justify-start" style={{ marginTop: "clamp(20px, 3vw, 48px)", display: "flex", flexWrap: "wrap", gap: "clamp(8px, 1.2vw, 16px)", alignItems: "stretch" }}>
             <a
               href="#"
               aria-label="Download on Google Play"
-              className="flex items-center justify-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105 w-[145px] lg:w-auto"
+              className="flex items-center justify-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105 w-[145px] lg:w-[clamp(160px,14vw,220px)]"
               style={{ gap: "clamp(6px, 0.8vw, 12px)", borderRadius: "clamp(8px, 0.8vw, 12px)", padding: "clamp(8px, 0.9vw, 14px) clamp(12px, 1.5vw, 22px)" }}
             >
               <svg viewBox="0 0 24 24" className="shrink-0" style={{ width: "clamp(18px, 1.5vw, 26px)", height: "clamp(18px, 1.5vw, 26px)" }} aria-hidden="true">
@@ -91,7 +121,7 @@ export function AppDownloadSection() {
             <a
               href="#"
               aria-label="Download on the App Store"
-              className="flex items-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105"
+              className="flex items-center justify-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105 w-[145px] lg:w-[clamp(160px,14vw,220px)]"
               style={{ gap: "clamp(6px, 0.8vw, 12px)", borderRadius: "clamp(8px, 0.8vw, 12px)", padding: "clamp(8px, 0.9vw, 14px) clamp(12px, 1.5vw, 22px)" }}
             >
               <svg viewBox="0 0 24 24" className="shrink-0 fill-current" style={{ width: "clamp(22px, 2vw, 32px)", height: "clamp(22px, 2vw, 32px)" }} aria-hidden="true">

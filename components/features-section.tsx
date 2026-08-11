@@ -94,7 +94,7 @@ export function FeaturesSection() {
                 <span className="flex items-center justify-center">{icon}</span>
                 <div className="flex flex-col gap-1">
                   <p className="font-extrabold text-black text-xs">{title}</p>
-                  <p className="leading-relaxed text-gray-500 text-[11px]">{desc}</p>
+                  <p className="leading-relaxed text-[11px]" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>{desc}</p>
                 </div>
               </div>
             ))}
@@ -116,7 +116,7 @@ export function FeaturesSection() {
               <span className="flex items-center justify-center">{icon}</span>
               <div className="flex flex-col gap-2">
                 <p className="font-extrabold text-black" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>{title}</p>
-                <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(12px, 1vw, 14px)" }}>{desc}</p>
+                <p className="leading-relaxed" style={{ fontSize: "clamp(12px, 1.2vw, 15px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400, maxWidth: "135px", wordBreak: "break-word" }}>{desc}</p>
               </div>
             </div>
           ))}

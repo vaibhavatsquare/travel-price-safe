@@ -92,7 +92,7 @@ export function HowItWorksSection() {
                 <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
                   {number}. {label}
                 </p>
-                <p className="mt-1 leading-relaxed text-gray-400" style={{ fontSize: "clamp(11px, 1vw, 16px)", maxWidth: "clamp(120px, 10vw, 160px)" }}>
+                <p className="mt-1 leading-relaxed" style={{ fontSize: "clamp(11px, 1vw, 16px)", maxWidth: "clamp(120px, 10vw, 160px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 500 }}>
                   {desc}
                 </p>
               </div>

@@ -22,6 +22,21 @@ export function HeroSection() {
       </div>
 
       {/* ── 4 peach arcs – positioned upper-right ── */}
+      {/* Mobile circles – visible only on mobile, centered */}
+      {/* Extra large outer rings to cover full section */}
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef9f7] sm:hidden"
+        style={{ width: "160vw", height: "160vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] sm:hidden"
+        style={{ width: "130vw", height: "130vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7] sm:hidden"
+        style={{ width: "100vw", height: "100vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8] sm:hidden"
+        style={{ width: "75vw", height: "75vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0] sm:hidden"
+        style={{ width: "52vw", height: "52vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#f9c8b0] sm:hidden"
+        style={{ width: "32vw", height: "32vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
+
       {/* Arc 1 – outermost, very faint */}
       <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] hidden sm:block"
         style={{ width: "105vw", height: "105vw", top: "-1vh", right: "-13.5vw", zIndex: 0 }} />
@@ -55,8 +70,8 @@ export function HeroSection() {
 
           {/* Headline */}
           <h1
-            className="mt-6 font-bold leading-[1.1] tracking-wide text-[#0a1628]"
-            style={{ fontSize: "clamp(2rem, 3.8vw, 3.4rem)" }}
+            className="mt-6 font-bold leading-[1.1] tracking-wide"
+            style={{ fontSize: "clamp(2rem, 3.8vw, 3.4rem)", color: "rgba(21, 34, 63, 1)" }}
           >
             Travel Smarter.<br />
             Discover Better.<br />
@@ -64,7 +79,7 @@ export function HeroSection() {
           </h1>
 
           {/* Sub-copy */}
-          <p className="mt-5 max-w-full lg:max-w-[420px] text-base leading-relaxed text-gray-500">
+          <p className="mt-5 max-w-full lg:max-w-[420px] text-base leading-relaxed" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
             Find trusted restaurants, Cafes, bars and local experiences
             with verified prices, exclusive deals, real traveller reviews
             and a unique CRV Score.

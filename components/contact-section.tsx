@@ -39,7 +39,7 @@ export function ContactSection() {
           <h2 className="mt-8 font-bold leading-snug text-[#0a1628]" style={{ fontSize: "clamp(24px, 3vw, 42px)", letterSpacing: "0.04em" }}>
             We&apos;d Love to<br /> hear from you!
           </h2>
-          <p className="mt-8 leading-relaxed text-gray-500" style={{ fontSize: "clamp(13px, 1.4vw, 20px)" }}>
+          <p className="mt-8 leading-relaxed" style={{ fontSize: "clamp(13px, 1.4vw, 20px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
             Have a question or suggestion?&nbsp;<br />
             Drop us a message and our team will get back to you shortly.
           </p>
@@ -49,7 +49,7 @@ export function ContactSection() {
         <div className="border border-gray-250 bg-white w-full rounded-2xl lg:rounded-[32px] lg:w-[46.5vw] lg:min-h-[66vh]" style={{ padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01)" }}>
           <>
               <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
-              <p className="text-gray-400" style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)" }}>Fill out the form and we&apos;ll get back to you.</p>
+              <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>
 
               <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: "clamp(10px, 1.5vw, 24px)" }} noValidate>
                 <div className="grid sm:grid-cols-2" style={{ gap: "clamp(8px, 1.2vw, 20px)" }}>

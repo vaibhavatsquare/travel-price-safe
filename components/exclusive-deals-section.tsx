@@ -80,7 +80,7 @@ export function ExclusiveDealsSection() {
           <h2 className="mt-6 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(28px, 3vw, 48px)" }}>
             Save  More<br />While You Travel
           </h2>
-          <p className="mt-6 max-w-sm leading-relaxed text-gray-500" style={{ fontSize: "clamp(15px, 1.3vw, 20px)" }}>
+          <p className="mt-6 max-w-sm leading-relaxed" style={{ fontSize: "clamp(15px, 1.3vw, 20px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
             Access hand-picked deals and promotions from top venues near you.
             Eat, Drink and explore more for less.
           </p>

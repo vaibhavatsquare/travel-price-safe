@@ -16,7 +16,7 @@ function VenueCard({
   discount: string
 }) {
   return (
-    <div className="overflow-hidden bg-white shrink-0" style={{ width: "clamp(180px, 18vw, 288px)", height: "clamp(210px, 21vw, 336px)", borderRadius: "clamp(14px, 1.47vw, 24px)", boxShadow: "0px 0px 7.86px 0px #00000052" }}>
+    <div className="overflow-hidden bg-white shrink-0" style={{ width: "clamp(200px, 18vw, 288px)", height: "clamp(260px, 21vw, 336px)", borderRadius: "clamp(14px, 1.47vw, 24px)", boxShadow: "0px 0px 7.86px 0px #00000052" }}>
       {/* Photo */}
       <div className="relative overflow-hidden" style={{ height: "clamp(100px, 10vw, 160px)" }}>
         <img src={image} alt={name} className="h-full w-full object-cover" />
@@ -77,17 +77,17 @@ export function ExclusiveDealsSection() {
           <span className="text-m font-bold uppercase tracking-widest text-primary">
             Exclusive Deals
           </span>
-          <h2 className="mt-6 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(22px, 3vw, 48px)" }}>
+          <h2 className="mt-6 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(28px, 3vw, 48px)" }}>
             Save  More<br />While You Travel
           </h2>
-          <p className="mt-6 max-w-sm leading-relaxed text-gray-500" style={{ fontSize: "clamp(14px, 1.3vw, 20px)" }}>
+          <p className="mt-6 max-w-sm leading-relaxed text-gray-500" style={{ fontSize: "clamp(15px, 1.3vw, 20px)" }}>
             Access hand-picked deals and promotions from top venues near you.
             Eat, Drink and explore more for less.
           </p>
         </div>
 
         {/* Right – Venue cards */}
-        <div className="flex gap-4 overflow-x-auto pb-2 pl-8 pt-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex gap-4 overflow-x-auto pb-2 pl-2 pt-2 sm:pl-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <VenueCard
             image="/image_100.svg"
             name="Austin Grill"

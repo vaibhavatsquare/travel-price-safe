@@ -1,16 +1,15 @@
 export function AppDownloadSection() {
   return (
     <section
-  className="relative bg-[#fff0e8]"
+  className="relative bg-[#fff0e8] h-auto lg:h-[clamp(280px,33vw,430px)]"
   style={{
-    height: "clamp(280px, 33vw, 430px)",
     marginTop: "clamp(60px, 8vw, 140px)",
     marginBottom: "clamp(20px, 5vw, 60px)",
     overflow: "visible",
   }}
 >
       <div
-        className="container-wide grid items-center h-full lg:grid-cols-2"
+        className="container-wide grid items-center h-full grid-cols-1 lg:grid-cols-2"
         style={{ gap: "clamp(16px, 3vw, 48px)" }}
       >
 
@@ -19,12 +18,10 @@ export function AppDownloadSection() {
           <img
             src="/phones-mockup.svg"
             alt="TravelPriceSafe App"
+            className="lg:absolute lg:bottom-0 lg:left-0 mx-auto lg:mx-0"
             style={{
               width: "clamp(240px, 38vw, 520px)",
               height: "auto",
-              position: "absolute",
-              bottom: 0,
-              left: 0,
               zIndex: 10,
             }}
           />
@@ -35,7 +32,7 @@ export function AppDownloadSection() {
           src="/Vector__1_.svg"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute hidden lg:block"
           style={{
             // width: "clamp(100px, 14vw, 200px)",
             width: "clamp(140px, 20vw, 280px)",
@@ -53,7 +50,7 @@ export function AppDownloadSection() {
           src="/Vector__2_.svg"
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute hidden lg:block"
           style={{
             width: "clamp(18px, 2vw, 34px)",
             // width: "clamp(28px, 3.5vw, 55px)",
@@ -65,7 +62,7 @@ export function AppDownloadSection() {
         />
 
         {/* Right – Copy + buttons */}
-        <div className="relative flex flex-col items-center justify-center" style={{ paddingRight: "clamp(8px, 2vw, 32px)" }}>
+        <div className="relative flex flex-col items-center justify-center text-center lg:text-left py-6 lg:py-0" style={{ paddingRight: "clamp(8px, 2vw, 32px)" }}>
           <div style={{ maxWidth: "clamp(320px, 45vw, 580px)" }}>
           <h2 className="font-bold leading-tight text-[#0a1628]" style={{ fontSize: "clamp(20px, 2.8vw, 42px)", letterSpacing: "0.03em" }}>
             Your Next Great Discovery<br /> Starts Here.
@@ -73,11 +70,11 @@ export function AppDownloadSection() {
           <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(13px, 1.2vw, 18px)", marginTop: "clamp(12px, 1.5vw, 24px)" }}>
             Download TravelPriceSafe and make every journey<br /> unforgettable.
           </p>
-          <div style={{ marginTop: "clamp(20px, 3vw, 48px)", display: "flex", flexWrap: "wrap", gap: "clamp(8px, 1.2vw, 16px)" }}>
+          <div className="justify-center lg:justify-start" style={{ marginTop: "clamp(20px, 3vw, 48px)", display: "flex", flexWrap: "wrap", gap: "clamp(8px, 1.2vw, 16px)" }}>
             <a
               href="#"
               aria-label="Download on Google Play"
-              className="flex items-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105"
+              className="flex items-center justify-center bg-[#0a1628] text-white shadow-md transition-transform hover:scale-105 w-[145px] lg:w-auto"
               style={{ gap: "clamp(6px, 0.8vw, 12px)", borderRadius: "clamp(8px, 0.8vw, 12px)", padding: "clamp(8px, 0.9vw, 14px) clamp(12px, 1.5vw, 22px)" }}
             >
               <svg viewBox="0 0 24 24" className="shrink-0" style={{ width: "clamp(18px, 1.5vw, 26px)", height: "clamp(18px, 1.5vw, 26px)" }} aria-hidden="true">

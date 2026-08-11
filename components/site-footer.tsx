@@ -20,7 +20,7 @@ export function SiteFooter() {
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-col items-end gap-2" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
+          <nav className="flex flex-col items-start sm:items-end gap-2" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
             <a href="/privacy" className="text-gray-500 transition-colors hover:text-primary">
               Privacy Policy
             </a>
@@ -31,7 +31,7 @@ export function SiteFooter() {
         </div>
 
         {/* Divider + copyright */}
-        <div className="mt-8 mb-8 border-gray-100 pt-6 text-center text-gray-400" style={{ fontSize: "clamp(12px, 1vw, 16px)" }}>
+        <div className="mt-4 mb-4 border-t border-gray-100 pt-4 text-center text-gray-400" style={{ fontSize: "clamp(12px, 1vw, 16px)" }}>
           © 2026 TravelPriceSafe. All rights reserved.
         </div>
 

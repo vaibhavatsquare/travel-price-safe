@@ -74,24 +74,49 @@ export function FeaturesSection() {
   return (
     <section className="bg-white py-10">
       <div className="container-wide">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {features.map(({ icon, iconBg, title, desc }) => (
+        {/* Mobile – infinite marquee */}
+        <div className="overflow-hidden lg:hidden py-3">
+          <div
+            className="flex gap-4"
+            style={{ animation: "marquee 22s linear infinite", width: "max-content" }}
+          >
+            {[...features, ...features].map(({ icon, title, desc }, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 bg-white px-3 py-4 text-center border border-gray-100 shrink-0"
+                style={{
+                  boxShadow: "0px 0px 10px 0px #00000040",
+                  width: "130px",
+                  minHeight: "140px",
+                  borderRadius: "16px",
+                }}
+              >
+                <span className="flex items-center justify-center">{icon}</span>
+                <div className="flex flex-col gap-1">
+                  <p className="font-extrabold text-black text-xs">{title}</p>
+                  <p className="leading-relaxed text-gray-500 text-[11px]">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop – static grid */}
+        <div className="hidden lg:grid grid-cols-6 gap-4">
+          {features.map(({ icon, title, desc }) => (
             <div
               key={title}
-              className="flex flex-col items-center gap-4 bg-white px-4 py-8 text-center border border-gray-100"
+              className="flex flex-col items-center gap-4 bg-white px-4 py-6 text-center border border-gray-100 w-full"
               style={{
                 boxShadow: "0px 0px 10px 0px #00000040",
-                width: "clamp(140px, 12.3vw, 197px)",
                 minHeight: "clamp(160px, 14.69vw, 235px)",
                 borderRadius: "clamp(16px, 1.5vw, 24px)",
               }}
             >
-              <span className="flex items-center justify-center">
-  {icon}
-</span>
+              <span className="flex items-center justify-center">{icon}</span>
               <div className="flex flex-col gap-2">
-                <p className="font-extrabold text-black" style={{ fontSize: "clamp(12px, 1.2vw, 18px)" }}>{title}</p>
-                <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(10px, 1vw, 14px)" }}>{desc}</p>
+                <p className="font-extrabold text-black" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>{title}</p>
+                <p className="leading-relaxed text-gray-500" style={{ fontSize: "clamp(12px, 1vw, 14px)" }}>{desc}</p>
               </div>
             </div>
           ))}

@@ -3,7 +3,7 @@ export function HeroSection() {
     <section className="relative min-h-screen overflow-hidden bg-white">
 
       {/* ── Inline Navbar ── */}
-      <div className="relative z-10 flex items-center justify-between px-8 py-4">
+      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-4">
         <a href="/">
           <img
             src="/logo.svg"
@@ -23,25 +23,25 @@ export function HeroSection() {
 
       {/* ── 4 peach arcs – positioned upper-right ── */}
       {/* Arc 1 – outermost, very faint */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3]"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] hidden sm:block"
         style={{ width: "105vw", height: "105vw", top: "-1vh", right: "-13.5vw", zIndex: 0 }} />
       {/* Arc 2 – faint */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7]"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7] hidden sm:block"
         style={{ width: "84vw", height: "84vw", top: "18vh", right: "-3vw", zIndex: 0 }} />
       {/* Arc 3 – medium */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8]"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8] hidden sm:block"
         style={{ width: "63vw", height: "63vw", top: "36vh", right: "7.5vw", zIndex: 0 }} />
       {/* Arc 4 – innermost, darkest */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0]"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0] hidden sm:block"
         style={{ width: "42vw", height: "42vw", top: "55vh", right: "18vw", zIndex: 0 }} />
 
       <div
-        className="container-wide relative grid min-h-[90vh] items-center gap-10 pb-16 pt-6"
-        style={{ gridTemplateColumns: "1fr 1.1fr", zIndex: 1 }}
+        className="container-wide relative grid min-h-[90vh] items-center gap-10 pb-16 pt-6 grid-cols-1 lg:grid-cols-[1fr_1.1fr]"
+        style={{ zIndex: 1 }}
       >
 
         {/* ─── Left: Text ─── */}
-        <div className="max-w-[520px]">
+        <div className="max-w-[520px] mx-auto text-center lg:mx-0 lg:text-left">
 
           {/* Explore badge */}
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-primary" style={{ boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01), 0px 111px 31px 0px rgba(140,140,140,0)" }}>
@@ -64,14 +64,14 @@ export function HeroSection() {
           </h1>
 
           {/* Sub-copy */}
-          <p className="mt-5 max-w-[420px] text-base leading-relaxed text-gray-500">
+          <p className="mt-5 max-w-full lg:max-w-[420px] text-base leading-relaxed text-gray-500">
             Find trusted restaurants, Cafes, bars and local experiences
             with verified prices, exclusive deals, real traveller reviews
             and a unique CRV Score.
           </p>
 
           {/* App store buttons */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
             <a
               href="#"
               aria-label="Download on Google Play"
@@ -106,7 +106,7 @@ export function HeroSection() {
         </div>
 
         {/* ─── Right: Photo collage ─── */}
-        <div className="relative hidden lg:flex items-center justify-center">
+        <div className="relative flex items-center justify-center mt-6 lg:mt-0">
           <img
             src="/hero-right.svg"
             alt="Travel collage"

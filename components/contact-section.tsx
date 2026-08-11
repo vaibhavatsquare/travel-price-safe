@@ -28,25 +28,25 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-white py-16 sm:py-20">
-      <div className="container-wide grid items-start gap-12 lg:grid-cols-2">
+    <section id="contact" className="bg-white py-20 sm:py-28">
+      <div className="container-wide grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_0.8fr]">
 
         {/* Left – copy */}
-        <div className="max-w-sm">
-          <span className="text-sm font-bold uppercase tracking-widest text-primary">
+        <div className="max-w-md w-full">
+          <span className="font-bold uppercase tracking-widest text-primary" style={{ fontSize: "150%" }}>
             Contact Us
           </span>
-          <h2 className="mt-3 font-bold leading-snug tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(24px, 3.5vw, 52px)" }}>
-            We&apos;d Love to<br />hear from you!
+          <h2 className="mt-8 font-bold leading-snug text-[#0a1628]" style={{ fontSize: "clamp(24px, 3vw, 42px)", letterSpacing: "0.04em" }}>
+            We&apos;d Love to<br /> hear from you!
           </h2>
-          <p className="mt-3 leading-snug text-gray-500" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
-            Have a question or suggestion?&nbsp;
+          <p className="mt-8 leading-relaxed text-gray-500" style={{ fontSize: "clamp(13px, 1.4vw, 20px)" }}>
+            Have a question or suggestion?&nbsp;<br />
             Drop us a message and our team will get back to you shortly.
           </p>
         </div>
 
         {/* Right – form card */}
-        <div className="rounded-2xl border border-gray-250 bg-white" style={{ aspectRatio: "4/3", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01)" }}>
+        <div className="border border-gray-250 bg-white w-full rounded-2xl lg:rounded-[32px] lg:w-[46.5vw] lg:min-h-[66vh]" style={{ padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01)" }}>
           <>
               <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
               <p className="text-gray-400" style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)" }}>Fill out the form and we&apos;ll get back to you.</p>
@@ -60,7 +60,7 @@ export function ContactSection() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className={`w-full rounded-xl border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.name && !name ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.name && !name ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
                   />
                   {touched.name && !name && <p className="text-xs text-red-500">Name is required</p>}
                   </div>
@@ -71,7 +71,7 @@ export function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className={`w-full rounded-xl border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
                   />
                   {touched.email && !email && <p className="text-xs text-red-500">Email is required</p>}
                   </div>
@@ -83,18 +83,18 @@ export function ContactSection() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                  className="w-full resize-none rounded-xl border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                  className="w-full resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
                 />
 
                 <div className="flex items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
                   <button
                     type="submit"
-                    className="rounded-xl bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
                     style={{ padding: "clamp(8px, 1vw, 14px) clamp(16px, 2vw, 28px)", fontSize: "clamp(12px, 1vw, 16px)" }}
                   >
                     Send message
                   </button>
-                  <span className="text-right text-xs text-gray-400">
+                  <span className="text-right text-xs lg:text-sm text-gray-400">
                     Prefer email?<br />
                     <a href="mailto:info@travelpriceSafe.com" className="text-primary hover:underline">
                       info@travelpriceSafe.com

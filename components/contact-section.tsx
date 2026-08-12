@@ -46,7 +46,7 @@ export function ContactSection() {
         </div>
 
         {/* Right – form card */}
-        <div className="border border-gray-250 bg-white w-full rounded-2xl lg:rounded-[32px] lg:w-[46.5vw] lg:min-h-[66vh]" style={{ padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01)" }}>
+        <div className="border border-gray-100 w-full rounded-2xl lg:rounded-[32px] lg:w-[46.5vw] lg:min-h-[66vh]" style={{ background: "rgba(255, 255, 255, 1)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
           <>
               <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
               <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>

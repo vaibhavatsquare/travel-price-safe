@@ -3,7 +3,7 @@ export function AppDownloadSection() {
     <section
   className="relative bg-[#fff0e8] h-auto lg:h-[clamp(280px,33vw,430px)]"
   style={{
-    marginTop: "clamp(60px, 8vw, 140px)",
+    marginTop: "clamp(60px, 5vw, 140px)",
     marginBottom: "clamp(20px, 5vw, 60px)",
     overflow: "visible",
   }}

@@ -28,7 +28,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-white py-20 sm:py-28">
+    <section id="contact" className="bg-white pb-24 sm:pb-40">
       <div className="container-wide grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_0.8fr]">
 
         {/* Left – copy */}
@@ -86,17 +86,17 @@ export function ContactSection() {
                   className="w-full resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
                 />
 
-                <div className="flex items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
+                <div className="flex flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
                   <button
                     type="submit"
-                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
-                    style={{ padding: "clamp(8px, 1vw, 14px) clamp(16px, 2vw, 28px)", fontSize: "clamp(12px, 1vw, 16px)" }}
+                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[44px] px-6 text-sm lg:text-base"
+                    style={{ padding: "clamp(12px, 1vw, 14px) clamp(20px, 2vw, 28px)", fontSize: "clamp(14px, 1vw, 16px)" }}
                   >
                     Send message
                   </button>
                   <span className="text-right text-xs lg:text-sm text-gray-400">
                     Prefer email?<br />
-                    <a href="mailto:info@travelpriceSafe.com" className="text-primary hover:underline">
+                    <a href="mailto:info@travelpriceSafe.com" className="text-primary hover:underline break-all">
                       info@travelpriceSafe.com
                     </a>
                   </span>
@@ -107,13 +107,13 @@ export function ContactSection() {
 
       </div>
       {toast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 rounded-2xl bg-white px-6 py-4 text-[#0a1628] shadow-xl border border-gray-100">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500">
-            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current text-white" aria-hidden="true">
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 sm:px-6 sm:py-4 text-[#0a1628] shadow-xl border border-gray-100 w-[90vw] sm:w-auto max-w-sm sm:max-w-none">
+          <div className="flex h-10 w-10 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-green-500">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-4 sm:w-4 fill-current text-white" aria-hidden="true">
               <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
             </svg>
           </div>
-          <p className="font-semibold text-[#0a1628]">Message sent successfully!</p>
+          <p className="font-semibold text-sm sm:text-base text-[#0a1628]">Message sent successfully!</p>
         </div>
       )}
     </section>

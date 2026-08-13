@@ -72,7 +72,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="bg-white py-10">
+    <section className="bg-white mt-20 mb-10">
       <div className="container-wide">
         {/* Mobile – infinite marquee */}
         <div className="overflow-hidden lg:hidden py-3">

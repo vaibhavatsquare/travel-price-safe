@@ -121,7 +121,7 @@ export function HeroSection() {
         </div>
 
         {/* ─── Right: Photo collage ─── */}
-        <div className="relative flex items-center justify-center mt-6 lg:mt-0">
+        <div className="relative flex items-center justify-center mt-6 ml-6 lg:mt-0">
           <img
             src="/hero-right.svg"
             alt="Travel collage"

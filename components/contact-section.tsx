@@ -28,7 +28,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="bg-white pb-24 sm:pb-40">
+    <section id="contact" className="bg-white pb-12 sm:pb-40 mt-10">
       <div className="container-wide grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_0.8fr]">
 
         {/* Left – copy */}

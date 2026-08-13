@@ -51,7 +51,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-white pt-6 pb-12 sm:pt-8 sm:pb-16">
+    <section id="how-it-works" className="bg-white pt-6 pb-12 sm:pt-8 sm:pb-16 mt-10">
       <div className="container-wide">
 
         {/* Header */}

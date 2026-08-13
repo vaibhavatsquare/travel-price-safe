@@ -72,7 +72,8 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="bg-white mt-20 mb-10">
+    // <section className="bg-white mt-20 mb-10">
+    <section className="bg-white !py-6 sm:!py-16 " >
       <div className="container-wide">
         {/* Mobile – infinite marquee */}
         <div className="overflow-hidden lg:hidden py-3">
@@ -102,7 +103,7 @@ export function FeaturesSection() {
         </div>
 
         {/* Desktop – static grid */}
-        <div className="hidden lg:grid grid-cols-6 gap-4">
+        <div className="hidden lg:grid grid-cols-6 gap-4 mt-8">
           {features.map(({ icon, title, desc }) => (
             <div
               key={title}

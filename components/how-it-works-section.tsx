@@ -1,9 +1,9 @@
 const steps = [
   {
     number: 1,
-    label: "Search",
+    label: " Search",
     desc: "Find the best places around you.",
-    color: "bg-gray-50 border-gray-200",
+    color: "bg-white border-gray-200",
     icon: (
       <svg width="48" height="48" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M34.5 63C50.2401 63 63 50.2401 63 34.5C63 18.7599 50.2401 6 34.5 6C18.7599 6 6 18.7599 6 34.5C6 50.2401 18.7599 63 34.5 63Z" stroke="#497EF5" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -14,8 +14,9 @@ const steps = [
   {
     number: 2,
     label: "Compare",
-    desc: "Check prices, reviews, deals & CRV Score.",
-    color: "bg-gray-50 border-gray-200",
+    desc: "Check prices,\nreviews, deals & CRV\nScore.",
+    color: "bg-white border-gray-200",
+    noWrap: true,
     icon: (
       <svg width="48" height="48" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M58.5 37.5C58.5 33.36 61.86 30 66 30V27C66 15 63 12 51 12H21C9 12 6 15 6 27V28.5C10.14 28.5 13.5 31.86 13.5 36C13.5 40.14 10.14 43.5 6 43.5V45C6 57 9 60 21 60H51C63 60 66 57 66 45C61.86 45 58.5 41.64 58.5 37.5Z" stroke="#FD6D2A" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -25,9 +26,9 @@ const steps = [
   },
   {
     number: 3,
-    label: "Save & Go",
+    label: " Save & Go",
     desc: "Save your favourites and get directions.",
-    color: "bg-gray-50 border-gray-200",
+    color: "bg-white border-gray-200",
     icon: (
       <svg width="48" height="48" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M43.5 31.9502H28.5" stroke="#66C736" strokeWidth="6" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
@@ -37,9 +38,9 @@ const steps = [
   },
   {
     number: 4,
-    label: "Share",
+    label: " Share",
     desc: "Share your experience and help travellers.",
-    color: "bg-gray-50 border-gray-200",
+    color: "bg-white border-gray-200",
     icon: (
       <svg width="48" height="48" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M22.1991 18.96L47.6691 10.47C59.0991 6.65997 65.3091 12.9 61.5291 24.33L53.0391 49.8C47.3391 66.93 37.9791 66.93 32.2791 49.8L29.7591 42.24L22.1991 39.72C5.06906 34.02 5.06906 24.69 22.1991 18.96Z" stroke="#9E72EA" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -56,10 +57,10 @@ export function HowItWorksSection() {
 
         {/* Header */}
         <div className="mb-14 text-center">
-          <span className="text-m font-bold uppercase tracking-widest text-primary">
-            How It Works
+          <span className="text-primary" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 600, fontSize: "135%", lineHeight: "45px", letterSpacing: "0%" }}>
+            HOW IT WORKS
           </span>
-          <h2 className="mt-3 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(22px, 3vw, 48px)" }}>
+          <h2 className="mt-10 mb-20 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(22px, 3vw, 48px)",fontWeight: 700, }}>
             Simple Steps for Smarter Travel
           </h2>
         </div>
@@ -78,7 +79,7 @@ export function HowItWorksSection() {
             ))}
           </div>
 
-          {steps.map(({ number, label, desc, color, icon }) => (
+          {steps.map(({ number, label, desc, color, icon, noWrap }) => (
             <div key={number} className="relative flex flex-col items-center gap-4 text-center">
               {/* Icon circle */}
               <div
@@ -89,10 +90,10 @@ export function HowItWorksSection() {
               </div>
               {/* Number + label */}
               <div>
-                <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(13px, 1.2vw, 18px)" }}>
+                <p className="text-[#0a1628] text-center pb-3" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 700, fontSize: 20, lineHeight: "100%", letterSpacing: "0%" }}>
                   {number}. {label}
                 </p>
-                <p className="mt-1 leading-relaxed" style={{ fontSize: "clamp(11px, 1vw, 16px)", maxWidth: "clamp(120px, 10vw, 160px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 500 }}>
+                <p className="mt-1 text-center" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 500, fontSize: "92%", lineHeight: "25px", letterSpacing: "0%", maxWidth: noWrap ? "none" : "clamp(120px, 10vw, 160px)", whiteSpace: noWrap ? "pre-line" : "normal", color: "var(--Primary, rgba(21, 34, 63, 1))" }}>
                   {desc}
                 </p>
               </div>

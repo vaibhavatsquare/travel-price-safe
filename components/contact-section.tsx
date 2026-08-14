@@ -9,11 +9,12 @@ export function ContactSection() {
   const [message, setMessage] = useState("")
   const [toast, setToast] = useState(false)
   const [touched, setTouched] = useState({ name: false, email: false })
+const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setTouched({ name: true, email: true })
-    if (!name || !email) return
+    if (!name || !isValidEmail(email)) return
     const supabase = createClient()
     const { error } = await supabase
       .from("contact_submissions")
@@ -23,6 +24,7 @@ export function ContactSection() {
       setName("")
       setEmail("")
       setMessage("")
+      setTouched({ name: false, email: false })
       setTimeout(() => setToast(false), 3000)
     }
   }
@@ -32,11 +34,11 @@ export function ContactSection() {
       <div className="container-wide grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_0.8fr]">
 
         {/* Left – copy */}
-        <div className="max-w-md w-full">
+        <div className="max-w-md w-full text-center lg:text-left">
           <span className="font-bold uppercase tracking-widest text-primary" style={{ fontSize: "150%" }}>
             Contact Us
           </span>
-          <h2 className="mt-8 font-bold leading-snug text-[#0a1628]" style={{ fontSize: "clamp(24px, 3vw, 42px)", letterSpacing: "0.04em" }}>
+          <h2 className="mt-8 font-bold leading-snug text-[#0a1628]" style={{ fontSize: "clamp(24px, 3.2vw, 56px)", letterSpacing: "0.04em" }}>
             We&apos;d Love to<br /> hear from you!
           </h2>
           <p className="mt-8 leading-relaxed" style={{ fontSize: "clamp(13px, 1.4vw, 20px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
@@ -46,13 +48,13 @@ export function ContactSection() {
         </div>
 
         {/* Right – form card */}
-        <div className="border border-gray-100 w-full rounded-2xl lg:rounded-[32px] lg:w-[46.5vw] lg:min-h-[66vh]" style={{ background: "rgba(255, 255, 255, 1)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
+        <div className="border border-gray-100 w-full" style={{ background: "rgba(255, 255, 255, 1)", width: "clamp(300px, 43vw, 669px)", height: "auto", borderRadius: "clamp(16px, 2vw, 32px)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
           <>
               <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
               <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: "clamp(10px, 1.5vw, 24px)" }} noValidate>
-                <div className="grid sm:grid-cols-2" style={{ gap: "clamp(8px, 1.2vw, 20px)" }}>
+              <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: "clamp(10px, 1.5vw, 20px)" }} noValidate>
+                <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "clamp(10px, 1.2vw, 20px)" }}>
                   <div className="flex flex-col gap-1">
                   <input
                     type="text"
@@ -60,7 +62,7 @@ export function ContactSection() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.name && !name ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.name && !name ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   />
                   {touched.name && !name && <p className="text-xs text-red-500">Name is required</p>}
                   </div>
@@ -71,9 +73,10 @@ export function ContactSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   />
                   {touched.email && !email && <p className="text-xs text-red-500">Email is required</p>}
+{touched.email && email && !isValidEmail(email) && <p className="text-xs text-red-500">Enter a valid email</p>}
                   </div>
                 </div>
 
@@ -83,20 +86,20 @@ export function ContactSection() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                  className="w-full resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.42vw", padding: "clamp(10px, 1.5vw, 20px) clamp(12px, 1.8vw, 24px)", fontSize: "clamp(16px, 1.2vw, 20px)" }}
+                  className="w-full mt-2 resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                 />
 
-                <div className="flex flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
+                <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
                   <button
                     type="submit"
-                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[44px] px-6 text-sm lg:text-base"
-                    style={{ padding: "clamp(12px, 1vw, 14px) clamp(20px, 2vw, 28px)", fontSize: "clamp(14px, 1vw, 16px)" }}
+                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[40px] px-5 text-sm lg:text-base"
+                    style={{ padding: "clamp(10px, 1.1vw, 15px) clamp(16px, 2.2vw, 30px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   >
                     Send message
                   </button>
-                  <span className="text-right text-xs lg:text-sm text-gray-400">
-                    Prefer email?<br />
-                    <a href="mailto:info@travelpriceSafe.com" className="text-primary hover:underline break-all">
+                  <span className="text-center sm:text-right text-xs lg:text-sm text-gray-400 flex flex-col gap-2 w-full sm:w-auto">
+                    Prefer email?
+                    <a href="mailto:info@travelpriceSafe.com" className="text-primary underline break-all">
                       info@travelpriceSafe.com
                     </a>
                   </span>

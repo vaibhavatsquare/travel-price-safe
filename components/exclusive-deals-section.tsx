@@ -38,12 +38,12 @@ function VenueCard({
       </div>
 
       {/* Card body */}
-      <div className="p-3">
-        <p className="text-base font-bold text-[#0a1628]">{name}</p>
-        <div className="mt-1 flex items-center gap-1 text-base text-gray-400 font-medium">
-          <span>{category}</span>
+      <div className="p-3 pl-4">
+        <p className="text-lg text-[#0a1628] pb-2" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 600 }}>{name}</p>
+        <div className="mt-1 flex items-center gap-1 text-base font-medium" style={{ color: "var(--Sub-text, rgba(107, 114, 128, 1))" }}>
+          <span style={{fontWeight:500}}>{category}</span>
         </div>
-        <div className="mt-1 flex items-center gap-1 text-base text-gray-400">
+        <div className="mt-1 flex items-center gap-1 text-base" style={{ color: "var(--Sub-text, rgba(107, 114, 128, 1))" }}>
           <svg width="12" height="14" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M10.3136 0C13.0489 0 15.6723 1.08661 17.6064 3.02079C19.5406 4.95496 20.6272 7.57827 20.6272 10.3136C20.6272 13.8363 18.7066 16.7195 16.6828 18.788C15.6717 19.8102 14.5685 20.737 13.3871 21.5566L12.8989 21.8889L12.6697 22.0413L12.2377 22.3164L11.8526 22.5513L11.3759 22.8286C11.0523 23.0133 10.6862 23.1104 10.3136 23.1104C9.94103 23.1104 9.57489 23.0133 9.25131 22.8286L8.77459 22.5513L8.17869 22.1846L7.95867 22.0413L7.48883 21.7285C6.21433 20.8662 5.0272 19.8813 3.94438 18.788C1.92062 16.7184 0 13.8363 0 10.3136C0 7.57827 1.08661 4.95496 3.02079 3.02079C4.95496 1.08661 7.57827 0 10.3136 0ZM10.3136 6.87574C9.86214 6.87574 9.4151 6.96466 8.99799 7.13743C8.58089 7.3102 8.2019 7.56343 7.88267 7.88267C7.56343 8.2019 7.3102 8.58089 7.13743 8.99799C6.96466 9.41509 6.87574 9.86214 6.87574 10.3136C6.87574 10.7651 6.96466 11.2121 7.13743 11.6292C7.3102 12.0463 7.56343 12.4253 7.88267 12.7445C8.2019 13.0638 8.58089 13.317 8.99799 13.4898C9.4151 13.6626 9.86214 13.7515 10.3136 13.7515C11.2254 13.7515 12.0998 13.3893 12.7446 12.7445C13.3893 12.0998 13.7515 11.2254 13.7515 10.3136C13.7515 9.40183 13.3893 8.52739 12.7446 7.88267C12.0998 7.23794 11.2254 6.87574 10.3136 6.87574Z" fill="#6B7280"/>
           </svg>
@@ -51,11 +51,11 @@ function VenueCard({
         </div>
         {/* Discount + Timer */}
         <div className="mt-2.5 flex items-center justify-between">
-          <span className="rounded-md bg-orange-100 px-2 py-0.5 text-base font-bold text-primary">
+          <span style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 500, fontSize: "122.75%", lineHeight: "100%", letterSpacing: "0%", color: "var(--red, rgba(255, 68, 68, 1))" }}>
             {discount}
           </span>
-          <span className="flex items-center gap-1 text-base font-semibold text-red-500">
-            <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+          <span className="flex items-center gap-1" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 600, fontSize: "133%", lineHeight: "100%", letterSpacing: "0%", color: "var(--red, rgba(255, 68, 68, 1))" }}>
+            <img src="/Vector__5_.svg" alt="timer" className="h-4 w-4" />
             13:24
           </span>
         </div>
@@ -71,8 +71,8 @@ export function ExclusiveDealsSection() {
 
         {/* Left – Text */}
         <div>
-          <span className="text-m font-bold uppercase tracking-widest text-primary">
-            Exclusive Deals
+          <span className="text-primary" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 600, fontSize: "150%", lineHeight: "45px", letterSpacing: "0%" }}>
+            EXCLUSIVE DEALS
           </span>
           <h2 className="mt-6 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(28px, 3vw, 48px)" }}>
             Save  More<br />While You Travel
@@ -95,7 +95,7 @@ export function ExclusiveDealsSection() {
           />
           <VenueCard
             image="/image_94.svg"
-            name="La trattoria"
+            name="La trattoria 🔥"
             category="Nightlife"
             distance="0.3 Km"
             score={91}

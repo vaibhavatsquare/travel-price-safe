@@ -14,9 +14,9 @@ function VenueCard({
   discount: string
 }) {
   return (
-    <div className="overflow-hidden bg-white shrink-0" style={{ width: "clamp(200px, 18vw, 288px)", height: "clamp(260px, 21vw, 336px)", borderRadius: "clamp(14px, 1.47vw, 24px)", boxShadow: "0px 0px 7.86px 0px #00000052" }}>
+    <div className="overflow-hidden bg-white shrink-0" style={{ width: "clamp(160px, 22vw, 288px)", height: "clamp(220px, 26vw, 336px)", borderRadius: "clamp(14px, 1.47vw, 24px)", boxShadow: "0px 0px 7.86px 0px #00000052" }}>
       {/* Photo */}
-      <div className="relative overflow-hidden" style={{ height: "clamp(100px, 10vw, 160px)" }}>
+      <div className="relative overflow-hidden" style={{ height: "clamp(80px, 12vw, 160px)" }}>
         <img src={image} alt={name} className="h-full w-full object-cover" />
         {/* Top action icons */}
         <div className="absolute right-2 top-2 flex gap-2">
@@ -67,39 +67,33 @@ function VenueCard({
 export function ExclusiveDealsSection() {
   return (
     <section className="bg-white pt-8 pb-4 sm:pt-10 sm:pb-6">
-      <div className="container-wide grid items-center gap-8 lg:grid-cols-2">
+      <div className="container-wide grid items-center gap-8 md:grid-cols-2">
 
         {/* Left – Text */}
-        <div>
+        <div className="text-center md:text-left">
           <span className="text-primary" style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", fontWeight: 600, fontSize: "150%", lineHeight: "45px", letterSpacing: "0%" }}>
             EXCLUSIVE DEALS
           </span>
           <h2 className="mt-6 font-bold leading-tight tracking-tight text-[#0a1628]" style={{ fontSize: "clamp(28px, 3vw, 48px)" }}>
             Save  More<br />While You Travel
           </h2>
-          <p className="mt-6 max-w-sm leading-relaxed" style={{ fontSize: "clamp(15px, 1.3vw, 20px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
+          <p className="mt-6 max-w-sm leading-relaxed mx-auto md:mx-0" style={{ fontSize: "clamp(15px, 1.3vw, 20px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
             Access hand-picked deals and promotions from top venues near you.
             Eat, Drink and explore more for less.
           </p>
         </div>
 
         {/* Right – Venue cards */}
-        <div className="grid grid-cols-1 place-items-center gap-4 sm:flex sm:overflow-x-auto pb-2 pl-2 pt-2 sm:pl-8 sm:[&::-webkit-scrollbar]:hidden sm:[-ms-overflow-style:none] sm:[scrollbar-width:none]">
-          <VenueCard
-            image="/image_100.svg"
-            name="Austin Grill"
-            category="Restaurant"
-            distance="0.3 Km"
-            score={91}
-            discount="20% OFF"
+        <div className="flex items-center justify-center gap-4 flex-wrap md:flex-nowrap">
+          <img
+            src="/venue-card-1.svg"
+            alt="Austin Grill"
+            className="w-full max-w-[280px] md:max-w-[48%] h-auto"
           />
-          <VenueCard
-            image="/image_94.svg"
-            name="La trattoria 🔥"
-            category="Nightlife"
-            distance="0.3 Km"
-            score={91}
-            discount="20% OFF"
+          <img
+            src="/venue-card-2.jpg"
+            alt="La trattoria"
+            className="w-full max-w-[280px] md:max-w-[48%] h-auto"
           />
         </div>
 

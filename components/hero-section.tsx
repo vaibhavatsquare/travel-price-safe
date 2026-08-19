@@ -1,62 +1,57 @@
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-white">
+    <section className="relative min-h-screen md:min-h-[60vh] xl:min-h-screen overflow-hidden bg-white">
 
       {/* ── Inline Navbar ── */}
-      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-4">
+      <div className="relative z-10 flex items-center justify-between px-4 sm:px-8 py-4" style={{borderRadius:"18px"}}>
         <a href="/">
           <img
             src="/logo.svg"
             alt="TravelPriceSafe"
             fetchPriority="high"
             decoding="sync"
-            style={{ height: "clamp(48px, 5vw, 72px)", width: "auto" }}
+            style={{ height: "clamp(56px, 6vw, 90px)", width: "auto" }}
           />
         </a>
         
           <a href="/#contact"
-          className="rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+          className="rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+          style={{fontWeight:"500"}}
         >
           Contact Us
         </a>
       </div>
 
-      {/* ── 4 peach arcs – positioned upper-right ── */}
-      {/* Mobile circles – visible only on mobile, centered */}
-      {/* Extra large outer rings to cover full section */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef9f7] sm:hidden"
+            {/* ── Background rings SVG ── */}
+      <img
+        aria-hidden="true"
+        src="/hero-bg-rings.svg"
+        alt=""
+        className="pointer-events-none absolute inset-0 w-full h-full object-cover hidden md:block"
+        style={{ zIndex: 0 }}
+      />
+
+      {/* Mobile arcs – visible only on mobile */}
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef9f7] md:hidden"
         style={{ width: "160vw", height: "160vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] sm:hidden"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] md:hidden"
         style={{ width: "130vw", height: "130vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7] sm:hidden"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7] md:hidden"
         style={{ width: "100vw", height: "100vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8] sm:hidden"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8] md:hidden"
         style={{ width: "75vw", height: "75vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0] sm:hidden"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0] md:hidden"
         style={{ width: "52vw", height: "52vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#f9c8b0] sm:hidden"
+      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#f9c8b0] md:hidden"
         style={{ width: "32vw", height: "32vw", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 0 }} />
 
-      {/* Arc 1 – outermost, very faint */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fef6f3] hidden sm:block"
-        style={{ width: "105vw", height: "105vw", top: "-1vh", right: "-13.5vw", zIndex: 0 }} />
-      {/* Arc 2 – faint */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fdeee7] hidden sm:block"
-        style={{ width: "84vw", height: "84vw", top: "18vh", right: "-3vw", zIndex: 0 }} />
-      {/* Arc 3 – medium */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fce3d8] hidden sm:block"
-        style={{ width: "63vw", height: "63vw", top: "36vh", right: "7.5vw", zIndex: 0 }} />
-      {/* Arc 4 – innermost, darkest */}
-      <div aria-hidden="true" className="pointer-events-none absolute rounded-full bg-[#fad4c0] hidden sm:block"
-        style={{ width: "42vw", height: "42vw", top: "55vh", right: "18vw", zIndex: 0 }} />
-
       <div
-        className="container-wide relative grid min-h-[90vh] items-center gap-10 pb-16 pt-6 grid-cols-1 lg:grid-cols-[1fr_1.1fr]"
+        className="container-wide relative grid min-h-[90vh] md:min-h-[55vh] xl:min-h-[90vh] items-center gap-10 pb-16 pt-6 grid-cols-1 md:grid-cols-[1fr_1.1fr] place-items-center md:place-items-stretch"
         style={{ zIndex: 1 }}
       >
 
         {/* ─── Left: Text ─── */}
-        <div className="max-w-[520px] mx-auto text-center lg:mx-0 lg:text-left">
+        <div className="max-w-[520px] mx-auto text-center md:mx-0 md:text-left xl:text-left md:self-center">
 
           {/* Explore badge */}
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-primary" style={{ boxShadow: "0px 4px 10px 0px rgba(140,140,140,0.1), 0px 18px 18px 0px rgba(140,140,140,0.09), 0px 40px 24px 0px rgba(140,140,140,0.05), 0px 71px 29px 0px rgba(140,140,140,0.01), 0px 111px 31px 0px rgba(140,140,140,0)" }}>
@@ -79,14 +74,14 @@ export function HeroSection() {
           </h1>
 
           {/* Sub-copy */}
-          <p className="mt-5 max-w-full lg:max-w-[420px] text-base leading-relaxed" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
+          <p className="mt-5 max-w-full md:max-w-[420px] text-base leading-relaxed" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>
             Find trusted restaurants, Cafes, bars and local experiences
             with verified prices, exclusive deals, real traveller reviews
             and a unique CRV Score.
           </p>
 
           {/* App store buttons */}
-          <div className="mt-8 flex flex-wrap gap-3 justify-center lg:justify-start">
+          <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start xl:justify-start">
             <a
               href="#"
               aria-label="Download on Google Play"
@@ -123,7 +118,7 @@ export function HeroSection() {
         </div>
 
         {/* ─── Right: Photo collage ─── */}
-        <div className="relative flex items-center justify-center mt-6 ml-6 lg:mt-0">
+        <div className="relative flex items-center justify-center mt-6 ml-0 md:ml-0 xl:ml-6 md:mt-0 w-full translate-x-4 md:translate-x-0 md:h-full">
           <img
             src="/hero-right.svg"
             alt="Travel collage"

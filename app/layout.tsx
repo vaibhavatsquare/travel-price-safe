@@ -18,6 +18,12 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'TravelPriceSafe — Explore Smarter. Spend Wiser.',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml',sizes:'any' },
+    ],
+    apple: '/apple-icon.png',
+  },
   description:
     'TravelPriceSafe helps you find nearby restaurants, bars, cafés & entertainment spots — with real prices, traveler reviews, and exclusive deals all in one app. Join the waitlist for early access.',
   generator: 'v0.app',

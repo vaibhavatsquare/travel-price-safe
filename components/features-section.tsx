@@ -74,36 +74,36 @@ export function FeaturesSection() {
   return (
     // <section className="bg-white mt-20 mb-10">
     <section className="bg-white !py-6 sm:!py-16 " >
-      <div className="container-wide">
-        {/* Mobile – infinite marquee */}
-        <div className="overflow-hidden lg:hidden py-3">
-          <div
-            className="flex gap-4"
-            style={{ animation: "marquee 22s linear infinite", width: "max-content" }}
-          >
-            {[...features, ...features].map(({ icon, title, desc }, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center gap-3 bg-white px-3 py-4 text-center border border-gray-100 shrink-0"
-                style={{
-                  boxShadow: "0px 0px 10px 0px #00000040",
-                  width: "130px",
-                  minHeight: "140px",
-                  borderRadius: "16px",
-                }}
-              >
-                <span className="flex items-center justify-center">{icon}</span>
-                <div className="flex flex-col gap-1">
-                  <p className="font-extrabold text-black text-xs">{title}</p>
-                  <p className="leading-relaxed text-[11px]" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>{desc}</p>
-                </div>
+      {/* Mobile – infinite marquee */}
+      <div className="xl:hidden overflow-x-hidden w-full py-4">
+        <div
+          className="flex gap-4"
+          style={{ animation: "marquee 22s linear infinite", width: "max-content" }}
+        >
+          {[...features, ...features].map(({ icon, title, desc }, i) => (
+            <div
+              key={i}
+              className="flex flex-col items-center gap-3 bg-white px-3 py-4 text-center border border-gray-100 shrink-0"
+              style={{
+                boxShadow: "0px 0px 10px 0px #00000040",
+                width: "130px",
+                minHeight: "140px",
+                borderRadius: "16px",
+              }}
+            >
+              <span className="flex items-center justify-center">{icon}</span>
+              <div className="flex flex-col gap-1">
+                <p className="font-extrabold text-black text-xs">{title}</p>
+                <p className="leading-relaxed text-[11px]" style={{ color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>{desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
 
+      <div className="container-wide">
         {/* Desktop – static grid */}
-        <div className="hidden lg:grid grid-cols-6 gap-4 mt-8">
+        <div className="hidden xl:grid grid-cols-6 gap-4 mt-8">
           {features.map(({ icon, title, desc }) => (
             <div
               key={title}

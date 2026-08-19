@@ -8,17 +8,41 @@ export function ContactSection() {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [toast, setToast] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [duplicateEmail, setDuplicateEmail] = useState(false)
   const [touched, setTouched] = useState({ name: false, email: false })
 const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setTouched({ name: true, email: true })
+    setDuplicateEmail(false)
     if (!name || !isValidEmail(email)) return
+    setLoading(true)
     const supabase = createClient()
+
+    // Check for duplicate email
+    const { data: existing, error: selectError } = await supabase
+      .from("contact_submissions")
+      .select("id")
+      .eq("email", email)
+      .limit(1)
+
+    if (selectError) {
+      console.error("Select error:", selectError)
+    }
+
+    if (existing && existing.length > 0) {
+      setDuplicateEmail(true)
+      setLoading(false)
+      setTimeout(() => setDuplicateEmail(false), 3000)
+      return
+    }
+
     const { error } = await supabase
       .from("contact_submissions")
       .insert([{ name, email, message }])
+    setLoading(false)
     if (!error) {
       setToast(true)
       setName("")
@@ -30,11 +54,11 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
   }
 
   return (
-    <section id="contact" className="bg-white pb-12 sm:pb-40 mt-10">
-      <div className="container-wide grid items-center gap-8 grid-cols-1 lg:grid-cols-[1fr_0.8fr] place-items-center lg:place-items-start">
+    <section id="contact" className="bg-white pb-12 sm:pb-16 mt-10 px-4 sm:px-0 scroll-mt-24">
+      <div className="container-wide grid items-center gap-8 grid-cols-1 md:grid-cols-[1fr_0.8fr] place-items-center md:place-items-start md:items-center">
 
         {/* Left – copy */}
-        <div className="max-w-md w-full text-center lg:text-left">
+        <div className="max-w-md w-full text-center md:text-left">
           <span className="font-bold uppercase tracking-widest text-primary" style={{ fontSize: "150%" }}>
             Contact Us
           </span>
@@ -48,7 +72,7 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
         </div>
 
         {/* Right – form card */}
-        <div className="border border-gray-100 w-full" style={{ background: "rgba(255, 255, 255, 1)", width: "clamp(300px, 43vw, 669px)", height: "auto", borderRadius: "clamp(16px, 2vw, 32px)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
+        <div className="border border-gray-100 w-full mx-4 sm:mx-0" style={{ background: "rgba(255, 255, 255, 1)", width: "clamp(300px, 43vw, 669px)", height: "auto", borderRadius: "clamp(16px, 2vw, 32px)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
           <>
               <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
               <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>
@@ -73,7 +97,7 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
+                    className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email || duplicateEmail ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   />
                   {touched.email && !email && <p className="text-xs text-red-500">Email is required</p>}
 {touched.email && email && !isValidEmail(email) && <p className="text-xs text-red-500">Enter a valid email</p>}
@@ -92,10 +116,17 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
                 <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
                   <button
                     type="submit"
-                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[40px] px-5 text-sm lg:text-base"
+                    disabled={loading}
+                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[40px] px-5 text-sm lg:text-base flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                     style={{ padding: "clamp(10px, 1.1vw, 15px) clamp(16px, 2.2vw, 30px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   >
-                    Send message
+                    {loading && (
+                      <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                    )}
+                    {loading ? "Sending..." : "Send message"}
                   </button>
                   <span className="text-center sm:text-right text-xs lg:text-sm text-gray-400 flex flex-col gap-2 w-full sm:w-auto">
                     Prefer email?
@@ -117,6 +148,17 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
             </svg>
           </div>
           <p className="font-semibold text-sm sm:text-base text-[#0a1628]">Message sent successfully!</p>
+        </div>
+      )}
+
+      {duplicateEmail && (
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 sm:px-6 sm:py-4 text-[#0a1628] shadow-xl border border-orange-200 w-[90vw] sm:w-auto max-w-sm sm:max-w-none">
+          <div className="flex h-10 w-10 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-orange-400">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-4 sm:w-4 fill-current text-white" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+            </svg>
+          </div>
+          <p className="font-semibold text-sm sm:text-base text-[#0a1628]">You've already messaged us! We'll be in touch soon.</p>
         </div>
       )}
     </section>

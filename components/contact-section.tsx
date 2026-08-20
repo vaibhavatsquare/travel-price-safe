@@ -10,13 +10,15 @@ export function ContactSection() {
   const [toast, setToast] = useState(false)
   const [loading, setLoading] = useState(false)
   const [duplicateEmail, setDuplicateEmail] = useState(false)
+  const [networkError, setNetworkError] = useState(false)
   const [touched, setTouched] = useState({ name: false, email: false })
-const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
+  const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setTouched({ name: true, email: true })
     setDuplicateEmail(false)
+    setNetworkError(false)
     if (!name || !isValidEmail(email)) return
     setLoading(true)
     const supabase = createClient()
@@ -39,11 +41,27 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
       return
     }
 
-    const { error } = await supabase
-      .from("contact_submissions")
-      .insert([{ name, email, message }])
+    if (!navigator.onLine) {
+      setLoading(false)
+      setNetworkError(true)
+      setTimeout(() => setNetworkError(false), 4000)
+      return
+    }
+
+    let insertError: unknown = null
+    try {
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert([{ name, email, message }])
+      insertError = error
+    } catch {
+      setLoading(false)
+      setNetworkError(true)
+      setTimeout(() => setNetworkError(false), 4000)
+      return
+    }
     setLoading(false)
-    if (!error) {
+    if (!insertError) {
       setToast(true)
       setName("")
       setEmail("")
@@ -74,23 +92,24 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
         {/* Right – form card */}
         <div className="border border-gray-100 w-full mx-4 sm:mx-0" style={{ background: "rgba(255, 255, 255, 1)", width: "clamp(300px, 43vw, 669px)", height: "auto", borderRadius: "clamp(16px, 2vw, 32px)", padding: "clamp(16px, 3vw, 48px)", boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.5)" }}>
           <>
-              <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
-              <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>
+            <p className="font-bold text-[#0a1628]" style={{ fontSize: "clamp(16px, 2vw, 28px)", marginBottom: "clamp(6px, 1vw, 14px)" }}>Send us a message</p>
+            <p style={{ fontSize: "clamp(12px, 1.1vw, 18px)", marginBottom: "clamp(12px, 2vw, 32px)", color: "var(--Primary, rgba(21, 34, 63, 1))", fontWeight: 400 }}>Fill out the form and we&apos;ll get back to you.</p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: "clamp(10px, 1.5vw, 20px)" }} noValidate>
-                <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "clamp(10px, 1.2vw, 20px)" }}>
-                  <div className="flex flex-col gap-1">
+            <form onSubmit={handleSubmit} className="flex flex-col" style={{ gap: "clamp(10px, 1.5vw, 20px)" }} noValidate>
+              <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "clamp(10px, 1.2vw, 20px)" }}>
+                <div className="flex flex-col gap-1">
                   <input
                     type="text"
                     placeholder="Your name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    autoCapitalize="words"
+                    onChange={(e) => { const val = e.target.value; setName(val.replace(/\b\w/g, (c) => c.toUpperCase())) }}
                     required
                     className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.name && !name ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   />
                   {touched.name && !name && <p className="text-xs text-red-500">Name is required</p>}
-                  </div>
-                  <div className="flex flex-col gap-1">
+                </div>
+                <div className="flex flex-col gap-1">
                   <input
                     type="email"
                     placeholder="Email"
@@ -100,42 +119,42 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
                     className={`w-full border bg-white text-[#0a1628] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 ${touched.email && !email || duplicateEmail ? "border-red-500 focus:border-red-500" : "border-black focus:border-primary"}`} style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
                   />
                   {touched.email && !email && <p className="text-xs text-red-500">Email is required</p>}
-{touched.email && email && !isValidEmail(email) && <p className="text-xs text-red-500">Enter a valid email</p>}
-                  </div>
+                  {touched.email && email && !isValidEmail(email) && <p className="text-xs text-red-500">Enter a valid email</p>}
                 </div>
+              </div>
 
-                <textarea
-                  placeholder="Write message here..."
-                  rows={4}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                  className="w-full mt-2 resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
-                />
+              <textarea
+                placeholder="Write message here..."
+                rows={4}
+                value={message}
+                autoCapitalize="sentences"
+                onChange={(e) => { const val = e.target.value; setMessage(val.charAt(0).toUpperCase() + val.slice(1)) }}
+                className="w-full mt-2 resize-none border border-black bg-white text-[#0a1628] placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" style={{ borderRadius: "0.7vw", padding: "clamp(7px, 1vw, 14px) clamp(10px, 1.4vw, 18px)", fontSize: "clamp(13px, 1vw, 16px)" }}
+              />
 
-                <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[40px] px-5 text-sm lg:text-base flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                    style={{ padding: "clamp(10px, 1.1vw, 15px) clamp(16px, 2.2vw, 30px)", fontSize: "clamp(13px, 1vw, 16px)" }}
-                  >
-                    {loading && (
-                      <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                      </svg>
-                    )}
-                    {loading ? "Sending..." : "Send message"}
-                  </button>
-                  <span className="text-center sm:text-right text-xs lg:text-sm text-gray-400 flex flex-col gap-2 w-full sm:w-auto">
-                    Prefer email?
-                    <a href="mailto:info@travelpriceSafe.com" className="text-primary underline break-all">
-                      info@travelpriceSafe.com
-                    </a>
-                  </span>
-                </div>
-              </form>
+              <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-center justify-between" style={{ gap: "clamp(8px, 1.5vw, 24px)", marginTop: "clamp(6px, 1vw, 16px)" }}>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="rounded-[24px] bg-primary font-bold text-white shadow-sm transition-all hover:bg-primary/90 hover:shadow-md min-h-[40px] px-5 text-sm lg:text-base flex items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  style={{ padding: "clamp(10px, 1.1vw, 15px) clamp(16px, 2.2vw, 30px)", fontSize: "clamp(13px, 1vw, 16px)" }}
+                >
+                  {loading && (
+                    <svg className="animate-spin h-4 w-4 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                  )}
+                  {loading ? "Sending..." : "Send message"}
+                </button>
+                <span className="text-center sm:text-right text-xs lg:text-sm text-gray-400 flex flex-col gap-2 w-full sm:w-auto">
+                  Prefer email?
+                  <a href="mailto:info@travelpriceSafe.com" className="text-primary underline break-all">
+                    info@travelpriceSafe.com
+                  </a>
+                </span>
+              </div>
+            </form>
           </>
         </div>
 
@@ -159,6 +178,16 @@ const isValidEmail = (val: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)
             </svg>
           </div>
           <p className="font-semibold text-sm sm:text-base text-[#0a1628]">You've already messaged us! We'll be in touch soon.</p>
+        </div>
+      )}
+      {networkError && (
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 sm:px-6 sm:py-4 text-[#0a1628] shadow-xl border border-red-200 w-[90vw] sm:w-auto max-w-sm sm:max-w-none">
+          <div className="flex h-10 w-10 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-red-500">
+            <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-4 sm:w-4 fill-current text-white" aria-hidden="true">
+              <path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z" />
+            </svg>
+          </div>
+          <p className="font-semibold text-sm sm:text-base text-[#0a1628]">No internet connection. Please check your network and try again.</p>
         </div>
       )}
     </section>

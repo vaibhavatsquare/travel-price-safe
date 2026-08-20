@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: 'TravelPriceSafe — Explore Smarter. Spend Wiser.',
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml',sizes:'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' },
     ],
     apple: '/apple-icon.png',
   },
